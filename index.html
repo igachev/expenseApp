@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <section class="all-items">
+
+            <div class="value-info balance">
+                <h4>Balance:</h4>
+            </div>
+
+            <div class="value-info income">
+                <h4>Income:</h4>
+            </div>
+
+            <div class="value-info expenses">
+                <h4>Expenses:</h4>
+            </div>
+
+            <div class="alert-messages">
+                <p>Status</p>
+            </div>
+
+            <div class="add-text">
+                <label for="text-info">Item/Service Name</label>
+                <input type="text" name="text-info" id="text-info">
+            </div>
+
+            <div class="add-value">
+                <label for="money-info">Item/Service Value</label>
+                <input type="number" name="money-info" id="money-info" placeholder="Positive value => Income / Negative value => expense">
+            </div>
+
+            <div class="add-item">
+                <button type="submit">Add Item</button>
+            </div>
+
+            <div class="text-list">
+                <h6>All Items</h6>
+            </div>
+
+        </section>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

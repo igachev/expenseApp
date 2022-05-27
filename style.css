@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #72d0cc;
+    
+}
+
+.wrapper {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.all-items {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-areas: 
+    '. . . . balance balance . . . .'
+    '. . . income income expense expense . . .'
+    '. . . . alert-messages alert-messages . . . .'
+    '. . . . add-text add-text . . . .'
+    '. . . . add-value add-value . . . .'
+    '. . . . add-item add-item . . . .'
+    '. . . . text-list text-list . . . .'
+    ;
+}
+
+.value-info {
+   border: 2px solid black;
+    padding: 10px;
+    width: 300px;
+    font-size: 18px;
+    color: #fff;
+    letter-spacing: 3px;
+    border-radius: 12px;
+    font-weight: 400;
+}
+
+.balance {
+grid-area: balance;
+}
+
+.income {
+grid-area: income;
+}
+
+.expenses {
+grid-area: expense;
+}
+
+.alert-messages {
+grid-area: alert-messages;
+}
+
+.add-text {
+grid-area: add-text;
+}
+
+.add-value {
+grid-area: add-value;
+}
+
+.add-item {
+grid-area: add-item;
+}
+
+.text-list {
+grid-area: text-list;
+}
