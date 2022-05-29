@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-* {
+:root {
+    --border-size:2px;
+}
+
+*, *::before, *::after  {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
+    margin-top: 10px;
     font-family: 'Poppins', sans-serif;
     background-color: #72d0cc;
     
@@ -20,15 +25,18 @@ body {
 .all-items {
     display: grid;
     grid-gap: 10px;
+    grid-auto-rows: auto;
     grid-template-areas: 
-    '. . . . balance balance . . . .'
-    '. . . income income expense expense . . .'
+    '. . . . balance balance  . . . .'
+    '. . . . income expense . . . .'
+    '. . . . . . . . . .'
     '. . . . alert-messages alert-messages . . . .'
     '. . . . add-text add-text . . . .'
     '. . . . add-value add-value . . . .'
-    '. . . . add-item add-item . . . .'
+    '. . . .  add-item add-item . . . .'
     '. . . . text-list text-list . . . .'
     ;
+    
 }
 
 .value-info {
@@ -44,32 +52,104 @@ body {
 
 .balance {
 grid-area: balance;
+justify-self: center;
 }
 
 .income {
 grid-area: income;
+justify-self: center;
 }
 
 .expenses {
 grid-area: expense;
+justify-self: center;
 }
 
 .alert-messages {
+text-align: center;
 grid-area: alert-messages;
+font-size: 20px;
+border-radius: 10px;
+padding: 8px;
+color: #fff;
+box-shadow: 0 1px 4px black;
+
 }
 
 .add-text {
 grid-area: add-text;
+font-size: 20px;
+border-radius: 10px;
+padding: 8px;
+color: #fff;
+box-shadow: 0 1px 4px black;
+font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"] {
+    width: 500px;
+    font-size:18px;
+    padding: 8px;
+    background-color: transparent;
+    color: #fff;
+   border-radius: 10px;
+   border-color: black;
 }
 
 .add-value {
 grid-area: add-value;
+font-size: 20px;
+border-radius: 10px;
+padding: 8px;
+color: #fff;
+box-shadow: 0 1px 4px black;
+font-weight: bold;
 }
 
 .add-item {
 grid-area: add-item;
+justify-self: center;
 }
 
 .text-list {
 grid-area: text-list;
+}
+
+.btn {
+font-size: 20px;
+border-radius: 10px;
+box-shadow: 0 1px 4px black;
+border: none;
+padding: 12px;
+color: #fff;
+background-color: transparent;
+cursor: pointer;
+position: relative;
+transition: color 0.3s ease-in;
+}
+
+.btn:hover {
+color: black;
+}
+
+.border-pop::before {
+    content: '';
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 0;
+z-index: -1;
+
+border: var(--border-size) solid black;
+transition: top,left,right,bottom 100ms ease-in-out;
+}
+
+.border-pop:hover::before,
+.border-pop:focus :before {
+    top:calc(var(--border-size) * -2);
+    bottom:calc(var(--border-size) * -2);
+    left:calc(var(--border-size) * -2);
+    right:calc(var(--border-size) * -2);
 }
