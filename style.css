@@ -114,6 +114,28 @@ justify-self: center;
 
 .text-list {
 grid-area: text-list;
+box-shadow: 0 1px 4px black;
+text-align: center;
+color: #fff;
+font-size: 20px;
+font-weight: lighter;
+border-radius: 50px;
+}
+
+.text-list .item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 8px;
+}
+
+.fas {
+    cursor: pointer;
+    transition: 0.5s color;
+}
+
+.fas:hover {
+    color: #284443;
 }
 
 .btn {
@@ -141,7 +163,6 @@ bottom: 0;
 left: 0;
 right: 0;
 z-index: -1;
-
 border: var(--border-size) solid black;
 transition: top,left,right,bottom 100ms ease-in-out;
 }
@@ -153,3 +174,4 @@ transition: top,left,right,bottom 100ms ease-in-out;
     left:calc(var(--border-size) * -2);
     right:calc(var(--border-size) * -2);
 }
+
