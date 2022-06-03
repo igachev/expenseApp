@@ -31,7 +31,27 @@ function editCompleted() {
     //get the new values
     let newText = textInfo.value;
     let newValue = moneyInfo.value;
-    //update the item in the table
+    //update the item in the table only
     saveCurrentItem.children[0].textContent = newText;
     saveCurrentItem.children[1].textContent = newValue;
+    let itemId = saveCurrentItem.getAttribute('data-id');
+    let items = getLocalStorage();
+
+    //update item in the local storage
+    items = items.map((item) => {
+    //compare id from local storage with id of clicked item.
+    //If they are the same this is the item which will be edited.
+    //Edit text and value of this item
+        if(item.id == itemId) {
+            item.textItem = newText;
+            item.valueItem = newValue;
+            return item;
+        }
+        else {
+            return item;
+        }
+        
+    })
+    //update the local storage
+    localStorage.setItem('history',JSON.stringify(items))
 }
