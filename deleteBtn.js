@@ -29,6 +29,7 @@ export function deleteItem(e) {
         }
        
     })
+    //update the local storage
     localStorage.setItem('history',JSON.stringify(items))
   
 }

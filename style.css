@@ -33,7 +33,7 @@ body {
     '. . . . alert-messages alert-messages . . . .'
     '. . . . add-text add-text . . . .'
     '. . . . add-value add-value . . . .'
-    '. . . .  add-item add-item . . . .'
+    '. . . .  edit-btn add-item . . . .'
     '. . . . text-list text-list . . . .'
     ;
     
@@ -109,7 +109,13 @@ font-weight: bold;
 
 .add-item {
 grid-area: add-item;
-justify-self: center;
+width: 200px;
+}
+
+.edit-btn {
+    grid-area: edit-btn;
+    width: 200px;
+    justify-self: right;
 }
 
 .text-list {

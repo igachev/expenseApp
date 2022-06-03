@@ -1,5 +1,6 @@
 //here are all functions for the local storage 
 import { deleteItem } from "./deleteBtn.js";
+import {editItem} from "./editBtn.js";
 
 let balance = document.querySelector('.balance');
 let income = document.querySelector('.income');
@@ -48,10 +49,16 @@ export function displayItemsStoredInLocalStorage(id,textItem,valueItem) {
     //delete the item from this row
     let deleteBtns = document.querySelectorAll('.fas.fa-window-close');
     deleteBtns.forEach((btn) => {
-        
         btn.addEventListener('click',deleteItem);
     })
 
+
+    //select all edit buttons and give them the option to
+    //edit the item from this row
+    let editBtns = document.querySelectorAll('.fa-edit');
+    editBtns.forEach((btn) => {
+        btn.addEventListener('click',editItem);
+    })
 }
 
 export function calculateIncomeBalanceExpense(valueItem) {
