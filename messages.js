@@ -6,6 +6,9 @@ alertMessage.innerText = `${text}`;
 
 setTimeout(() => {
 alertMessage.innerText = `Status`;
+if(text === 'Item Deleted') {
+    location.reload();
+}
 },seconds);
 
 }

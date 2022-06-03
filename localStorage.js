@@ -1,14 +1,15 @@
 //here are all functions for the local storage 
+import { deleteItem } from "./deleteBtn.js";
 
-const balance = document.querySelector('.balance');
-const income = document.querySelector('.income');
-const expenses = document.querySelector('.expenses');
+let balance = document.querySelector('.balance');
+let income = document.querySelector('.income');
+let expenses = document.querySelector('.expenses');
 
 const textList = document.querySelector('.text-list');
 
-let sumIncome = 0;
-let sumBalance = 0;
-let sumExpenses = 0;
+ let sumIncome = 0;
+ let sumBalance = 0;
+ let sumExpenses = 0;
 
 
 export function getLocalStorage() {
@@ -18,6 +19,7 @@ export function getLocalStorage() {
 
 export function addToLocalStorage(id,textItem,valueItem) {
 let listItem = {id:id,textItem:textItem,valueItem:valueItem};
+
 let items = getLocalStorage();
 items.push(listItem);
 localStorage.setItem('history',JSON.stringify(items));
@@ -27,6 +29,7 @@ export function displayItemsStoredInLocalStorage(id,textItem,valueItem) {
     let storedArticle = document.createElement('article');
     storedArticle.classList.add('item');
 
+    //create data attribute
     let dataId = document.createAttribute('data-id');
     dataId.value = id;
     storedArticle.setAttributeNode(dataId);
@@ -40,13 +43,22 @@ export function displayItemsStoredInLocalStorage(id,textItem,valueItem) {
     <i class="fas fa-window-close"></i>
     `;
     textList.append(storedArticle);
+
+    //select all close buttons and give them the option to
+    //delete the item from this row
+    let deleteBtns = document.querySelectorAll('.fas.fa-window-close');
+    deleteBtns.forEach((btn) => {
+        
+        btn.addEventListener('click',deleteItem);
+    })
+
 }
 
 export function calculateIncomeBalanceExpense(valueItem) {
     //display balance
     sumBalance += Number(valueItem);
     balance.innerHTML = `<h4>Balance:${sumBalance}</h4>`;
-
+    
     //display income
     if(valueItem > 0) {
         sumIncome += Number(valueItem);
@@ -56,12 +68,13 @@ export function calculateIncomeBalanceExpense(valueItem) {
     //display expense
     else {
         sumExpenses += Number(valueItem);
-        expenses.innerHTML = `<h4>Expenses:${sumExpenses}</h4>`;
+        expenses.innerHTML = `<h4>Expense:${sumExpenses}<h4>`;
     }
-
+    
 }
 
 export function prepareItems() {
+    
     let items = getLocalStorage();
     if(items.length > 0) {
         items.forEach((item) => {
@@ -69,3 +82,5 @@ export function prepareItems() {
         })
     }
 }
+
+

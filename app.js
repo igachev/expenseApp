@@ -1,18 +1,18 @@
-import { getLocalStorage,addToLocalStorage,displayItemsStoredInLocalStorage,calculateIncomeBalanceExpense,prepareItems } from "./localStorage.js";
+import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems } from "./localStorage.js";
 import { alertMessages } from "./messages.js";
+import { deleteItem } from "./deleteBtn.js";
 
-const balance = document.querySelector('.balance');
-const income = document.querySelector('.income');
-const expenses = document.querySelector('.expenses');
+
 
 const textInfo = document.getElementById('text-info');
 const moneyInfo = document.getElementById('money-info');
 
 const addItemBtn = document.querySelector('.add-btn');
-const textList = document.querySelector('.text-list');
+let textList = document.querySelector('.text-list');
 
 
 let id = '';
+let deleteBtns;
 
 addItemBtn.addEventListener('click',itemAdded);
 
@@ -39,17 +39,28 @@ function itemAdded(e) {
 
     //create unique id for each added item
     id = new Date().getTime().toString();
+    let dataId = document.createAttribute('data-id');
+    dataId.value = id;
+    item.setAttributeNode(dataId);
 
     addToLocalStorage(id,itemName,itemValue);
     
-    //after item is added input fields will be empty
+    //after item is added input fields will become empty
 document.getElementById('text-info').value = '';
 document.getElementById('money-info').value = '';
 
     // display message after the executed action
     alertMessages('Item added',2000);
+    
+    deleteBtns = document.querySelectorAll('.fas.fa-window-close');
+    deleteBtns.forEach((btn) => {
+        
+        btn.addEventListener('click',deleteItem);
+    })
 }
 
+
+    
 
 
 
