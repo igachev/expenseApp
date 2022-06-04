@@ -33,7 +33,7 @@ body {
     '. . . . alert-messages alert-messages . . . .'
     '. . . . add-text add-text . . . .'
     '. . . . add-value add-value . . . .'
-    '. . . .  edit-btn add-item . . . .'
+    '. . . . all-btns all-btns . . . .'
     '. . . . text-list text-list . . . .'
     ;
     
@@ -107,15 +107,10 @@ box-shadow: 0 1px 4px black;
 font-weight: bold;
 }
 
-.add-item {
-grid-area: add-item;
-width: 200px;
-}
-
-.edit-btn {
-    grid-area: edit-btn;
-    width: 200px;
-    justify-self: right;
+.all-btns {
+    grid-area: all-btns;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .text-list {
@@ -155,6 +150,7 @@ background-color: transparent;
 cursor: pointer;
 position: relative;
 transition: color 0.3s ease-in;
+
 }
 
 .btn:hover {

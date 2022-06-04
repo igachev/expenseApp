@@ -54,4 +54,7 @@ function editCompleted() {
     })
     //update the local storage
     localStorage.setItem('history',JSON.stringify(items))
+
+    //display message when the item is edited
+    alertMessages('Item was edited',1000);
 }

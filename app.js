@@ -1,7 +1,7 @@
 import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems } from "./localStorage.js";
 import { alertMessages } from "./messages.js";
 import { deleteItem } from "./deleteBtn.js";
-
+import { editItem } from "./editBtn.js";
 
 
 const textInfo = document.getElementById('text-info');
@@ -49,13 +49,19 @@ function itemAdded(e) {
 document.getElementById('text-info').value = '';
 document.getElementById('money-info').value = '';
 
-    // display message after the executed action
+    // display message when the item is added
     alertMessages('Item added',2000);
     
     deleteBtns = document.querySelectorAll('.fas.fa-window-close');
     deleteBtns.forEach((btn) => {
-        
         btn.addEventListener('click',deleteItem);
+    })
+
+    //select all edit buttons and give them the option to
+    //edit the item from this row
+    let editBtns = document.querySelectorAll('.fa-edit');
+    editBtns.forEach((btn) => {
+        btn.addEventListener('click',editItem);
     })
 }
 
