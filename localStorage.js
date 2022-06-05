@@ -1,12 +1,14 @@
 //here are all functions for the local storage 
 import { deleteItem } from "./deleteBtn.js";
 import {editItem} from "./editBtn.js";
+import {deleteAll} from "./deleteAll.js"
 
 let balance = document.querySelector('.balance');
 let income = document.querySelector('.income');
 let expenses = document.querySelector('.expenses');
 
 const textList = document.querySelector('.text-list');
+const deleteAllBtn = document.querySelector('.delete-all-btn');
 
  let sumIncome = 0;
  let sumBalance = 0;
@@ -59,6 +61,9 @@ export function displayItemsStoredInLocalStorage(id,textItem,valueItem) {
     editBtns.forEach((btn) => {
         btn.addEventListener('click',editItem);
     })
+
+    //delete all items
+    deleteAllBtn.addEventListener('click',deleteAll);
 }
 
 export function calculateIncomeBalanceExpense(valueItem) {
@@ -75,7 +80,7 @@ export function calculateIncomeBalanceExpense(valueItem) {
     //display expense
     else {
         sumExpenses += Number(valueItem);
-        expenses.innerHTML = `<h4>Expense:${sumExpenses}<h4>`;
+        expenses.innerHTML = `<h4>Expense:${sumExpenses}</h4>`;
     }
     
 }

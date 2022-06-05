@@ -56,5 +56,5 @@ function editCompleted() {
     localStorage.setItem('history',JSON.stringify(items))
 
     //display message when the item is edited
-    alertMessages('Item was edited',1000);
+    alertMessages('Item was edited',1000,'brown');
 }

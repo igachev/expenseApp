@@ -2,12 +2,13 @@ import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems } from "./
 import { alertMessages } from "./messages.js";
 import { deleteItem } from "./deleteBtn.js";
 import { editItem } from "./editBtn.js";
-
+import {deleteAll} from "./deleteAll.js"
 
 const textInfo = document.getElementById('text-info');
 const moneyInfo = document.getElementById('money-info');
 
 const addItemBtn = document.querySelector('.add-btn');
+const deleteAllBtn = document.querySelector('.delete-all-btn');
 let textList = document.querySelector('.text-list');
 
 
@@ -50,7 +51,7 @@ document.getElementById('text-info').value = '';
 document.getElementById('money-info').value = '';
 
     // display message when the item is added
-    alertMessages('Item added',2000);
+    alertMessages('Item added',2000,'yellow');
     
     deleteBtns = document.querySelectorAll('.fas.fa-window-close');
     deleteBtns.forEach((btn) => {
@@ -63,6 +64,9 @@ document.getElementById('money-info').value = '';
     editBtns.forEach((btn) => {
         btn.addEventListener('click',editItem);
     })
+
+    //delete all items
+    deleteAllBtn.addEventListener('click',deleteAll);
 }
 
 

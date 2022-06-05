@@ -17,7 +17,7 @@ export function deleteItem(e) {
     removeFromLocalStorage(currentId);
     
     //display message on field status
-    alertMessages('Item Deleted',1000)
+    alertMessages('Item Deleted',1000,'red');
 }
 
  function removeFromLocalStorage(currentItemId) {
