@@ -124,6 +124,7 @@ border-radius: 12px;
 height: 200px;
 padding: 30px;
 overflow-y: scroll;
+overflow-x: hidden;
 }
 
 .text-list::-webkit-scrollbar {
@@ -149,7 +150,23 @@ border-radius: 12px;
     flex-direction: row;
     justify-content: space-evenly;
     padding: 8px;
-    
+    border-bottom: 1px solid blue;
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+    transform: translateX(250px);
+    transition: 0.4s transform ease;
+}
+
+.item:nth-of-type(even) {
+    transform: translateX(-250px);
+}
+
+.item.center-items {
+    transform: translateX(0);
+}
+
+.text-list .item:last-of-type {
+    border-bottom: none;
 }
 
 .text-list h6 {

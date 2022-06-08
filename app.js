@@ -1,4 +1,4 @@
-import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems } from "./localStorage.js";
+import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems,centerItems } from "./localStorage.js";
 import { alertMessages } from "./messages.js";
 import { deleteItem } from "./deleteBtn.js";
 import { editItem } from "./editBtn.js";
@@ -14,6 +14,7 @@ let textList = document.querySelector('.text-list');
 
 let id = '';
 let deleteBtns;
+let allItems;
 
 addItemBtn.addEventListener('click',itemAdded);
 
@@ -67,7 +68,28 @@ document.getElementById('money-info').value = '';
 
     //delete all items
     deleteAllBtn.addEventListener('click',deleteAll);
+
+     //if item list contains less than 3 items change the height of
+    // its container to 100px in order to be able to scroll
+    allItems = document.querySelectorAll('.item')
+    if(allItems.length < 3 && allItems.length > 0) {
+        textList.style.height = `${100}px`
+    }
+    else {
+        textList.style.height = `${200}px`
+    }
+
+    //when scrolling inside the item list all items move to their
+    // central position.
+    //If item is even number its coming from left side.
+    //If item is odd number its coming from right side.
+    
+        textList.addEventListener('scroll',centerItems)
+    
 }
+
+
+
 
 
     
