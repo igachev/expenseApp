@@ -8,7 +8,15 @@ let saveCurrentItem;
 
 export function editItem(e) {
     e.preventDefault();
-    console.log(e.currentTarget.parentElement);
+   // console.log(e.currentTarget.parentElement);
+   //when edit icon is clicked display edit btn
+    let editBtn = document.querySelector('.edit-btn');
+    editBtn.classList.add('show');
+    let addBtn = document.querySelector('.add-btn');
+    addBtn.classList.add('hide');
+    let deleteAllBtn = document.querySelector('.delete-all-btn');
+    deleteAllBtn.classList.add('hide');
+
     let currentItem = e.currentTarget.parentElement;
     saveCurrentItem = currentItem;
     //text and value of clicked items
@@ -28,6 +36,16 @@ export function editItem(e) {
 }
 
 function editCompleted() {
+
+    //when edit operation is completed hide the edit btn
+    let editBtn = document.querySelector('.edit-btn');
+    editBtn.classList.remove('show');
+    let addBtn = document.querySelector('.add-btn');
+    addBtn.classList.remove('hide');
+    let deleteAllBtn = document.querySelector('.delete-all-btn');
+    deleteAllBtn.classList.remove('hide');
+    
+
     //get the new values
     let newText = textInfo.value;
     let newValue = moneyInfo.value;

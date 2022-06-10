@@ -88,7 +88,7 @@ export function displayItemsStoredInLocalStorage(id,textItem,valueItem) {
 export function centerItems() {
     allItems = document.querySelectorAll('.item')
     
-    let scrolled = textList.scrollTop /2 ;
+    let scrolled = textList.scrollTop / 2 ;
  
     allItems.forEach((item) => {
         let itemTop = item.getBoundingClientRect().top;
