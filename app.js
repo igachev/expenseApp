@@ -1,4 +1,4 @@
-import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems,centerItems } from "./localStorage.js";
+import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems,centerItems} from "./localStorage.js";
 import { alertMessages } from "./messages.js";
 import { deleteItem } from "./deleteBtn.js";
 import { editItem } from "./editBtn.js";
@@ -15,6 +15,7 @@ let textList = document.querySelector('.text-list');
 let id = '';
 let deleteBtns;
 let allItems;
+let addedItems = [];
 
 addItemBtn.addEventListener('click',itemAdded);
 
@@ -86,6 +87,7 @@ document.getElementById('money-info').value = '';
     
         textList.addEventListener('scroll',centerItems)
     
+
 }
 
 

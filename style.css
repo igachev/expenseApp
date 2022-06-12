@@ -32,6 +32,7 @@ body {
     '. . . . add-value add-value . . . .'
     '. . . . all-btns all-btns . . . .'
     '. . . . text-list text-list . . . .'
+    '. . . . filter-btns filter-btns . . . .'
     ;
     
 }
@@ -170,6 +171,10 @@ border-radius: 12px;
     font-size: 25px;
 }
 
+.filter-btns {
+    grid-area: filter-btns;
+}
+
 .fas {
     cursor: pointer;
     transition: 0.5s color;
@@ -212,3 +217,64 @@ color: black;
     visibility: hidden;
 }
 
+/*making it web responsive */
+@media(max-width:700px) {
+    .all-items {
+        grid-template-areas: 
+    '. . . . balance balance  . . . .'
+    '. . . . income income . . . .'
+    '. . . . expense expense . . . .'
+    '. . . . . . . . . .'
+    '. . . . alert-messages alert-messages . . . .'
+    '. . . . add-text add-text . . . .'
+    '. . . . add-value add-value . . . .'
+    '. . . . all-btns all-btns . . . .'
+    '. . . . text-list text-list . . . .'
+    ; 
+    }
+
+    .all-btns {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .value-info {
+        font-size: 14px;
+    }
+
+    .alert-messages {
+        font-size: 14px;
+        width: 300px;
+        justify-self: center;
+    }
+
+    .add-text {
+        font-size: 14px;
+        width: 400px;
+    }
+
+    .add-value {
+        font-size: 14px;
+        width: 400px;
+    }
+
+    input[type="text"],
+input[type="number"] {
+font-size: 14px;
+width: 380px;
+}
+
+.btn {
+    font-size: 14px;
+}
+
+.text-list h6 {
+    font-size: 16px;
+}
+
+.text-list {
+    font-size: 15px;
+    width: 400px;
+}
+}

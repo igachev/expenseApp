@@ -2,6 +2,7 @@
 import { deleteItem } from "./deleteBtn.js";
 import {editItem} from "./editBtn.js";
 import {deleteAll} from "./deleteAll.js"
+import {filterByPrice} from "./filterFunctions.js"
 
 let balance = document.querySelector('.balance');
 let income = document.querySelector('.income');
@@ -9,6 +10,7 @@ let expenses = document.querySelector('.expenses');
 
 const textList = document.querySelector('.text-list');
 const deleteAllBtn = document.querySelector('.delete-all-btn');
+const filterPriceBtn = document.querySelector('.filter-price');
 
  let sumIncome = 0;
  let sumBalance = 0;
@@ -66,6 +68,8 @@ export function displayItemsStoredInLocalStorage(id,textItem,valueItem) {
 
     //delete all items
     deleteAllBtn.addEventListener('click',deleteAll);
+
+    filterPriceBtn.addEventListener('click',filterByPrice);
 
     //if item list contains less than 3 items change the height of
     // its container to 100px in order to be able to scroll

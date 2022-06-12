@@ -23,13 +23,19 @@ switch(colorChoice) {
     break;
 }
 
-setTimeout(() => {
+setTimeout(() => {  
 alertMessage.innerText = `Status`;
 if(text === 'Item Deleted' || text === 'Item was edited' ||
-text === 'Items deleted') {
+text === 'Items deleted' ||
+text === 'Items filtered in ascending order by price') {
     //refresh page in order to update values of balance,income,expense
     location.reload();
 }
 },seconds);
 
+}
+
+//inform us what to do when edit icon is clicked
+export function editInfo(text) {
+alertMessage.innerText = text;
 }

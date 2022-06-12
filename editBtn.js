@@ -1,5 +1,5 @@
 import {getLocalStorage } from "./localStorage.js";
-import {alertMessages } from "./messages.js"
+import {alertMessages,editInfo } from "./messages.js"
 
 //select text and value fields
 let textInfo = document.getElementById('text-info');
@@ -9,7 +9,8 @@ let saveCurrentItem;
 export function editItem(e) {
     e.preventDefault();
    // console.log(e.currentTarget.parentElement);
-   //when edit icon is clicked display edit btn
+   //when edit icon is clicked display edit btn and
+   //hide add button and delete all button
     let editBtn = document.querySelector('.edit-btn');
     editBtn.classList.add('show');
     let addBtn = document.querySelector('.add-btn');
@@ -33,11 +34,13 @@ export function editItem(e) {
      //when button is clicked update the text and value
      editItemBtn.addEventListener('click',editCompleted);
     
+     editInfo('edit input fields and press Edit Changes');
 }
 
 function editCompleted() {
 
     //when edit operation is completed hide the edit btn
+    //and display add button and delete all button
     let editBtn = document.querySelector('.edit-btn');
     editBtn.classList.remove('show');
     let addBtn = document.querySelector('.add-btn');
