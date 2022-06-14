@@ -25,9 +25,11 @@ switch(colorChoice) {
 
 setTimeout(() => {  
 alertMessage.innerText = `Status`;
+
 if(text === 'Item Deleted' || text === 'Item was edited' ||
 text === 'Items deleted' ||
-text === 'Items filtered in ascending order by price') {
+text === 'Items filtered in ascending order by price' ||
+text === 'Items filtered in alphabetic order') {
     //refresh page in order to update values of balance,income,expense
     location.reload();
 }
