@@ -39,3 +39,16 @@ export function filterByName() {
     alertMessages('Items filtered in alphabetic order',2000,'blue')
 }
 //objs.sort((a,b) => a.last_nom - b.last_nom);
+
+export function filterByInsertionOrder() {
+    let items = getLocalStorage();
+    if(items.length > 0) {
+        items.sort((a,b) => {
+            return Number(a.id) - Number(b.id);
+        })
+    }
+
+    localStorage.setItem('history',JSON.stringify(items));
+
+    alertMessages('Items filtered in insertion order',2000,'blue')
+}

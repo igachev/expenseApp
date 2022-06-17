@@ -173,6 +173,8 @@ border-radius: 12px;
 
 .filter-btns {
     grid-area: filter-btns;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .fas {
@@ -224,16 +226,18 @@ color: black;
     '. . . . balance balance  . . . .'
     '. . . . income income . . . .'
     '. . . . expense expense . . . .'
-    '. . . . . . . . . .'
+    
     '. . . . alert-messages alert-messages . . . .'
     '. . . . add-text add-text . . . .'
     '. . . . add-value add-value . . . .'
     '. . . . all-btns all-btns . . . .'
     '. . . . text-list text-list . . . .'
+    '. . . . filter-btns filter-btns . . . .'
     ; 
     }
 
-    .all-btns {
+    .all-btns,
+    .filter-btns {
         display: flex;
         flex-direction: column;
         align-items: center;
