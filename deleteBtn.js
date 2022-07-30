@@ -1,4 +1,4 @@
-import {getLocalStorage } from "./localStorage.js";
+import {balanceIncomeExpense, getLocalStorage, prepareItems } from "./localStorage.js";
 import {alertMessages } from "./messages.js"
 
 export function deleteItem(e) {
@@ -15,23 +15,44 @@ export function deleteItem(e) {
 
     //remove it from the local storage
     removeFromLocalStorage(currentId);
+
+   balanceIncomeExpense()
+   
     
     //display message on field status
-    alertMessages('Item Deleted',1000,'red');
+    alertMessages('Item Deleted',3000,'red');
 }
 
  function removeFromLocalStorage(currentItemId) {
     let items = getLocalStorage();
+    
     items = items.filter((item) => {
         //return all items which are different from our currentItemId
         if(item.id != currentItemId) {
             return item;
         }
-       
+
+        
     })
     //update the local storage
     localStorage.setItem('history',JSON.stringify(items))
   
+}
+
+function updatePageAfterDelete() {
+    let b = 0;
+    let ex = 0;
+  
+    let items = getLocalStorage()
+    items.forEach((item) => {
+        
+        b += Number(item.valueItem);
+        if(item.valueItem < 0) {
+            ex += Number(item.valueItem)
+        }
+    })
+    document.querySelector('.balance').innerHTML = `<h4>Balance:${b}</h4>`;
+    document.querySelector('.expenses').innerHTML = `<h4>Expense:${ex}</h4>`;
 }
 
 

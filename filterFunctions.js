@@ -2,6 +2,7 @@ import { getLocalStorage } from "./localStorage.js";
 import { alertMessages } from "./messages.js";
 
 export function filterByPrice() {
+    location.reload()
     let items = getLocalStorage();
  
     if(items.length > 0) {
@@ -12,10 +13,12 @@ export function filterByPrice() {
     //console.log(items);
     localStorage.setItem('history',JSON.stringify(items));
 
-    alertMessages('Items filtered in ascending order by price',2000,'blue')
+   // alertMessages('Items filtered in ascending order by price',2000,'blue')
+    
 }
 
 export function filterByName() {
+    location.reload()
     let items = getLocalStorage();
     if(items.length > 0) {
         items.sort((a,b) => {
@@ -36,11 +39,13 @@ export function filterByName() {
     }
     
     localStorage.setItem('history',JSON.stringify(items));
-    alertMessages('Items filtered in alphabetic order',2000,'blue')
+   // alertMessages('Items filtered in alphabetic order',2000,'blue')
+    
 }
 //objs.sort((a,b) => a.last_nom - b.last_nom);
 
 export function filterByInsertionOrder() {
+    location.reload()
     let items = getLocalStorage();
     if(items.length > 0) {
         items.sort((a,b) => {
@@ -50,5 +55,6 @@ export function filterByInsertionOrder() {
 
     localStorage.setItem('history',JSON.stringify(items));
 
-    alertMessages('Items filtered in insertion order',2000,'blue')
+   // alertMessages('Items filtered in insertion order',2000,'blue')
+   
 }

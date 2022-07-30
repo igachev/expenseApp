@@ -1,4 +1,4 @@
-import { addToLocalStorage,calculateIncomeBalanceExpense,prepareItems,centerItems} from "./localStorage.js";
+import { addToLocalStorage,balanceIncomeExpense, prepareItems,centerItems, getLocalStorage} from "./localStorage.js";
 import { alertMessages } from "./messages.js";
 import { deleteItem } from "./deleteBtn.js";
 import { editItem } from "./editBtn.js";
@@ -24,10 +24,13 @@ window.addEventListener('DOMContentLoaded',prepareItems);
 
 function itemAdded(e) {
     e.preventDefault();
+
+    
+/////////
     let itemName = textInfo.value;
     let itemValue = moneyInfo.value;
 
-    calculateIncomeBalanceExpense(itemValue);
+    //calculateIncomeBalanceExpense(itemValue);
 
     //adding the item to the list of items
     let item = document.createElement('article');
@@ -47,13 +50,16 @@ function itemAdded(e) {
     item.setAttributeNode(dataId);
 
     addToLocalStorage(id,itemName,itemValue);
+
+    //update values of balance,income,expense
+    balanceIncomeExpense()
     
     //after item is added input fields will become empty
 document.getElementById('text-info').value = '';
 document.getElementById('money-info').value = '';
 
     // display message when the item is added
-    alertMessages('Item added',2000,'yellow');
+    alertMessages('Item added',3000,'yellow');
     
     deleteBtns = document.querySelectorAll('.fas.fa-window-close');
     deleteBtns.forEach((btn) => {
@@ -65,6 +71,7 @@ document.getElementById('money-info').value = '';
     let editBtns = document.querySelectorAll('.fa-edit');
     editBtns.forEach((btn) => {
         btn.addEventListener('click',editItem);
+       
     })
 
     //delete all items

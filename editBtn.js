@@ -1,4 +1,4 @@
-import {getLocalStorage } from "./localStorage.js";
+import {getLocalStorage,balanceIncomeExpense } from "./localStorage.js";
 import {alertMessages,editInfo } from "./messages.js"
 
 //select text and value fields
@@ -76,6 +76,13 @@ function editCompleted() {
     //update the local storage
     localStorage.setItem('history',JSON.stringify(items))
 
+    balanceIncomeExpense()
+
     //display message when the item is edited
-    alertMessages('Item was edited',1000,'brown');
+    alertMessages('Item was edited',3000,'brown');
+
+setTimeout(() => {
+    document.getElementById('text-info').value = '';
+    document.getElementById('money-info').value = '';
+},500)
 }

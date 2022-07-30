@@ -42,7 +42,8 @@ export function displayItemsStoredInLocalStorage(id,textItem,valueItem) {
     dataId.value = id;
     storedArticle.setAttributeNode(dataId);
 
-    calculateIncomeBalanceExpense(valueItem);
+    //calculateIncomeBalanceExpense(valueItem);
+    balanceIncomeExpense()
 
     storedArticle.innerHTML = `
     <p>${textItem}</p>
@@ -110,7 +111,7 @@ export function centerItems() {
     })
 }
 
-export function calculateIncomeBalanceExpense(valueItem) {
+/* export function calculateIncomeBalanceExpense(valueItem) {
     //display balance
     sumBalance += Number(valueItem);
     balance.innerHTML = `<h4>Balance:${sumBalance}</h4>`;
@@ -127,7 +128,7 @@ export function calculateIncomeBalanceExpense(valueItem) {
         expenses.innerHTML = `<h4>Expense:${sumExpenses}</h4>`;
     }
     
-}
+} */
 
 export function prepareItems() {
     
@@ -139,4 +140,23 @@ export function prepareItems() {
     }
 }
 
-
+export function balanceIncomeExpense() {
+    let b = 0;
+    let ex = 0;
+    let inc = 0;
+  
+    let items = getLocalStorage()
+    items.forEach((item) => {
+        
+        b += Number(item.valueItem);
+        if(item.valueItem < 0) {
+            ex += Number(item.valueItem)
+        }
+        else {
+            inc += Number(item.valueItem)
+        }
+    })
+    document.querySelector('.balance').innerHTML = `<h4>Balance:${b}</h4>`;
+    document.querySelector('.expenses').innerHTML = `<h4>Expense:${ex}</h4>`;
+    document.querySelector('.income').innerHTML = `<h4>Income:${inc}</h4>`;
+}

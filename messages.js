@@ -25,15 +25,8 @@ switch(colorChoice) {
 
 setTimeout(() => {  
 alertMessage.innerText = `input your incomes and expenses and calculate your balance`;
+alertMessage.style.color = '#fff'
 
-if(text === 'Item Deleted' || text === 'Item was edited' ||
-text === 'Items deleted' ||
-text === 'Items filtered in ascending order by price' ||
-text === 'Items filtered in alphabetic order' ||
-text === 'Items filtered in insertion order') {
-    //refresh page in order to update values of balance,income,expense
-    location.reload();
-}
 },seconds);
 
 }
